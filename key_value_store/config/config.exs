@@ -26,6 +26,6 @@ use Mix.Config
 # by uncommenting the line below and defining dev.exs, test.exs and such.
 # Configuration from the imported file will override the ones defined
 # here (which is why it is important to import them last). These are the updates
-# to the configuration that you wanted.
+# to the configuration that you wanted. Here are some more changes.
 #
 #     import_config "#{Mix.env}.exs"
