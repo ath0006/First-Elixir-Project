@@ -5,4 +5,10 @@ defmodule KeyValueStoreTest do
   test "greets the world" do
     assert KeyValueStore.hello() == :world
   end
+
+  #Failing test
+
+  test "fails" do
+    assert KeyValueStore.hello() == :andrew
+  end
 end

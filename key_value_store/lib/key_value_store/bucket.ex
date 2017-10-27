@@ -16,7 +16,7 @@ defmodule KEY_VALUE_STORE.Bucket do
   end
 
   @doc """
-  Puts the 'value' for the give 'key' in the 'bucket'.
+  Puts the 'value' for the given 'key' in the 'bucket'.
   """
   def put(bucket, key, value) do
     Agent.update(bucket, &Map.put(&1, key, value))
