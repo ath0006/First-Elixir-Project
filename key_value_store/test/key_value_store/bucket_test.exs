@@ -12,4 +12,12 @@ defmodule KEY_VALUE_STORE.BucketTest do
     KEY_VALUE_STORE.Bucket.put(bucket, "milk", 3)
     assert KEY_VALUE_STORE.Bucket.get(bucket, "milk") == 3
   end
+  
+  test "removes key", %{bucket: bucket} do
+    assert KEY_VALUE_STORE.Bucket.get(bucket, "milk") == nil
+
+    KEY_VALUE_STORE.Bucket.put(bucket, "milk", 3)
+    assert KEY_VALUE_STORE.Bucket.delete(bucket, "milk") == 3
+    assert KEY_VALUE_STORE.Bucket.get(bucket, "milk") == nil
+  end
 end
