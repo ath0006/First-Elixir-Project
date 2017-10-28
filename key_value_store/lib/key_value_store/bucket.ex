@@ -28,7 +28,10 @@ defmodule KEY_VALUE_STORE.Bucket do
   Returns the current value if 'key' exists.
   """
   def delete(bucket, key) do
-    Agent.get_and_update(bucket, &Map.pop(&1, key))
-  end
+    Process.sleep(1000) #puts cient to sleep
+    Agent.get_and_update(bucket, fn dict -> 
+      Process.sleep(1000) #puts server to sleep 
+      Map.pop(dict, key)
+  end)
 
  end
