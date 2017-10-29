@@ -32,6 +32,7 @@ defmodule KEY_VALUE_STORE.Bucket do
     Agent.get_and_update(bucket, fn dict -> 
       Process.sleep(1000) #puts server to sleep 
       Map.pop(dict, key)
-  end)
+    end)
+  end
 
  end
