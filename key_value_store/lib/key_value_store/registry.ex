@@ -31,7 +31,7 @@ defmodule KEY_VALUE_STORE.Registry do
   def init(:ok) do
     names = %{}
     refs = %{}
-    {:ok, %{}}
+    {:ok, {names, refs}}
   end
 
   def handle_call({:lookup, name}, _from, {names, _} = state) do
