@@ -1,5 +1,5 @@
 defmodule KEY_VALUE_STORE.Bucket do
-  use Agent
+  use Agent, restart: :temporary
 
   @doc """
   Starts a new bucket.

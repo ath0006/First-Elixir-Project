@@ -1,18 +1,10 @@
-defmodule KeyValueStore do
+defmodule KEY_VALUE_STORE do
+  use Application
   @moduledoc """
   Documentation for KeyValueStore.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> KeyValueStore.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def start(_type, _args) do
+    KEY_VALUE_STORE.Supervisor.start_link(name: KEY_VALUE_STORE.Supervisor)
   end
 end

@@ -7,7 +7,8 @@ defmodule KEY_VALUE_STORE.Supervisor do
 
     def init(:ok) do
       children = [
-          {KEY_VALUE_STORE.Registry, name: KEY_VALUE_STORE.Registry}
+          {KEY_VALUE_STORE.Registry, name: KEY_VALUE_STORE.Registry},
+          KEY_VALUE_STORE.BucketSupervisor
       ]
 
       Supervisor.init(children, strategy: :one_for_one)

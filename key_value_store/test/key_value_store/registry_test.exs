@@ -22,4 +22,13 @@ defmodule KEY_VALUE_STORE.RegistryTest do
       Agent.stop(bucket)
       assert KEY_VALUE_STORE.Registry.lookup(registry, "shopping") == :error
     end
+
+    test "removes bucket on crash", %{registry: registry} do
+      KEY_VALUE_STORE.Registry.create(registry, "shopping")
+      {:ok, bucket} = KEY_VALUE_STORE.Registry.lookup(registry, "shopping")
+
+      #Stop the bucket with non-normal reason
+      Agent.stop(bucket, :shutdown)
+      assert KEY_VALUE_STORE.Registry.lookup(registry, "shopping") == :error
+    end
 end
